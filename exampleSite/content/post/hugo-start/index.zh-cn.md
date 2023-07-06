@@ -14,15 +14,16 @@ tags:
 # 帖子分类
 categories:
   - markdown syntax
+  - Test
 # 设置帖子的封面
-image: hugo-start_cover.jpg
+# image: hugo-start_cover.jpg
 # 需要展示 数学表达式 的时候 请将math设置为true
 math: true
 ---
 
 ### 摘要
 ```
-<!--more-->
+\<!\-\-more\-\-\>
 ```
 <!--more-->
 
