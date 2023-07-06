@@ -20,6 +20,8 @@ categories:
 math: true
 # 启用 emoji
 enableEmoji: true
+# 启用 内联html
+unsafe: true
 ---
 
 ### 摘要
@@ -105,7 +107,7 @@ enableEmoji: true
     </html>
 
 #### 带有Hugo内部高亮短代码的代码块
-    {{< highlight html >}}
+    \{\{< highlight html >\}\}
     <!doctype html>
     <html lang="en">
     <head>
@@ -116,7 +118,7 @@ enableEmoji: true
       <p>Test</p>
     </body>
     </html>
-    {{< /highlight >}}
+    \{\{< /highlight >\}\}
 
 #### 代码改动对比 代码块（Diff code block）
 
@@ -209,12 +211,12 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
 
 ### 超链接图片
 
-[![小刘](https://mimao-hugo-blog.netlify.app/img/avatar_hudf0dd1d9cae34683258bdfb374497f7c_46309_300x0_resize_box_3.png)](https://mimao-hugo-blog.netlify.app/post/hugo-markdown-syntax-guide/#%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87)
+[![小刘](https://mimao-hugo-blog.netlify.app/img/avatar_hudf0dd1d9cae34683258bdfb374497f7c_46309_300x0_resize_box_3.png)](https://mimao-hugo-blog.netlify.app/img/avatar_hudf0dd1d9cae34683258bdfb374497f7c_46309_300x0_resize_box_3.png)
 
 ***
 
 ### 嵌入Html5代码块
-
+{{raw}}
 <svg class="canon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 496 373" height="373" width="496">
   <g fill="none">
     <path stroke="#000" stroke-width=".75" d="M.599 372.348L495.263 1.206M.312.633l494.95 370.853M.312 372.633L247.643.92M248.502.92l246.76 370.566M330.828 123.869V1.134M330.396 1.134L165.104 124.515"></path>
@@ -224,6 +226,7 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
     <ellipse cx="247.229" cy="377.375" rx=".75" ry="1.25"></ellipse>
   </g>
 </svg>
+{{/raw}}
 
 {{< css.inline >}}
 <style>
@@ -278,7 +281,6 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
     </style>
     {{< /css.inline >}}
 {{< /highlight >}}
-
 ***
 
 ### 数学表达式
@@ -290,17 +292,18 @@ In this example we will be using [KaTeX](https://katex.org/)
 - Within this partial reference the [Auto-render Extension](https://katex.org/docs/autorender.html) or host these scripts locally.
 - Include the partial in your templates like so:  
 
-**Note:** Use the online reference of [Supported TeX Functions](https://katex.org/docs/supported.html)
+**注意:** 了解数学表达式其他内容，可参见[Supported TeX Functions](https://katex.org/docs/supported.html)
+
 
 ```
-    {{< math.inline >}}
-    {{ if or .Page.Params.math .Site.Params.math }}
-    <!-- KaTeX -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-    {{ end }}
-    {{</ math.inline >}}
+\{\{< math.inline >\}\}
+\{\{ if or .Page.Params.math .Site.Params.math \}\}
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.cssintegrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjqcrossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.jsintegrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJzcrossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.jsintegrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkIcrossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+\{\{ end \}\}
+\{\{</ math.inline >\}\}
 ```
 
 #### Examples
@@ -315,6 +318,19 @@ Block math:
 $$
  \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
 $$
+
+```
+\{\{< math.inline >\}\}
+<p>
+Inline math: \(\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…\)
+</p>
+\{\{</ math.inline >\}\}
+
+Block math:
+$$
+ \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
+$$
+```
 
 ***
 
@@ -373,18 +389,18 @@ quote source
 quote author
 {{< /quote >}}
 
-    {{< quote author="A famous person" source="The book they wrote" url="https://en.wikipedia.org/wiki/Book">}}
+    \{\{< quote author="A famous person" source="The book they wrote" url="https://en.wikipedia.org/wiki/Book">\}\}
     quote author source url
-    {{< /quote >}}
+    \{\{< /quote >\}\}
 
-    {{< quote source="Anonymous book" url="https://en.wikipedia.org/wiki/Book">}}
+    \{\{< quote source="Anonymous book" url="https://en.wikipedia.org/wiki/Book">\}\}
     quote source url
-    {{< /quote >}}
+    \{\{< /quote >\}\}
 
-    {{< quote source="Some book">}}
+    \{\{< quote source="Some book">\}\}
     quote source
-    {{< /quote >}}
+    \{\{< /quote >\}\}
 
-    {{< quote author="Somebody">}}
+    \{\{< quote author="Somebody">\}\}
     quote author
-    {{< /quote >}}
+    \{\{< /quote >\}\}
