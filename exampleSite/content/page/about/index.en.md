@@ -1,6 +1,6 @@
 ---
-title: 关于
-description: 小帽子博客 米猫
+title: About
+description: Little Hat Blog - Mi Cat
 date: '2023-07-03'
 aliases:
   - about-us
@@ -15,4 +15,6 @@ menu:
             icon: user
 ---
 
-小帽子 欢迎您
+Welcome to Little Hat
+
+The English version of the blog is not planned to be launched due to limited time
