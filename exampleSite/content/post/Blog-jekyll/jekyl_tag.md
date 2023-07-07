@@ -1,7 +1,20 @@
 ---
-order: 6
-text: tag
+# 帖子的发布作者
+author: mimao
+# 帖子的标题
+title: 初识 tag
+# 帖子的日期
+date: 2023-07-07
+# 帖子的描述
+description: jekyll中的tag标签
+# 帖子的标签
+tags:
+  - jekyll
+# 帖子分类
+categories:
+  - Blog
 ---
+
 {% raw %}
 
 
