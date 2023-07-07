@@ -22,7 +22,7 @@ math: true
 
 ### 摘要
 ```
-{{ "<!--more-->" }}
+{{ print "<!--more-->" }}
 ```
 <!--more-->
 
@@ -252,7 +252,7 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
     <p><span class="nowrap"><span class="emojify">🙈</span> <code>:see_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙉</span> <code>:hear_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙊</span> <code>:speak_no_evil:</code></span></p>
     <br>
 
-    {{ "{{< css.inline >}}" }}
+    {{ print "{{< css.inline >}}" }}
     <style>
     .emojify {
       font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
@@ -266,7 +266,7 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
       }
     }
     </style>
-    {{ "{{< /css.inline >}}" }}
+    {{ print "{{< /css.inline >}}" }}
 {{< /highlight >}}
 
 ***
