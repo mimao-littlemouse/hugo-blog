@@ -21,9 +21,10 @@ math: true
 ---
 
 ### 摘要
-```
-{{ print "<!--more-->" }}
-```
+<MTMarkdownOptions output='raw'>
+  <!--more-->
+</MTMarkdownOptions>
+
 <!--more-->
 
 ***
