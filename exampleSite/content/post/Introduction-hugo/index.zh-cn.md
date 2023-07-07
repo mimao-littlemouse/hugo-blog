@@ -208,7 +208,7 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
 
 ### 超链接图片
 
-[![小刘]({{ref . "#超链接图片"}})](https://mimao-hugo-blog.netlify.app/img/avatar_hudf0dd1d9cae34683258bdfb374497f7c_46309_300x0_resize_box_3.png)
+[![小刘](https://mimao-blog.netlify.app/avatar.png)]("超链接" https://mimao-blog.netlify.app/avatar.png)
 
 ***
 
@@ -222,6 +222,15 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
 </style>
 {{< /css.inline >}}
 
+```
+<svg class="canon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 496 373" height="373" width="496"><g fill="none"><path stroke="#000" stroke-width=".75" d="M.599 372.348L495.263 1.206M.312.633l494.95 370.853M.312 372.633L247.643.92M248.502.92l246.76 370.566M330.828 123.869V1.134M330.396 1.134L165.104 124.515"></path><path stroke="#ED1C24" stroke-width=".75" d="M275.73 41.616h166.224v249.05H275.73zM54.478 41.616h166.225v249.052H54.478z"></path><path stroke="#000" stroke-width=".75" d="M.479.375h495v372h-495zM247.979.875v372"></path><ellipse cx="498.729" cy="177.625" rx=".75" ry="1.25"></ellipse><ellipse cx="247.229" cy="377.375" rx=".75" ry="1.25"></ellipse></g></svg>
+
+\{\{< css.inline >\}\}
+<style>
+.canon { background: white; width: 100%; height: auto; }
+</style>
+\{\{< /css.inline >\}\}
+```
 
 ***
 
@@ -250,51 +259,42 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
 {{< /css.inline >}}
 
 ```
-<p><span class="nowrap"><span class="emojify">🙈</span> <code>:see_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙉</span> <code>:hear_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙊</span> <code>:speak_no_evil:</code></span></p>
-    <br>
-
-    \{\{< css.inline >\}\}
-    <style>
-    .emojify {
-      font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
-      font-size: 2rem;
-      vertical-align: middle;
-    }
-    @media screen and (max-width:650px) {
-      .nowrap {
-        display: block;
-        margin: 25px 0;
-      }
-    }
-    </style>
-    \{\{< /css.inline >\}\}
+<p>
+  <span class="nowrap">
+    <span class="emojify">🙈</span> 
+    <code>:see_no_evil:</code>
+  </span>  
+  <span class="nowrap">
+    <span class="emojify">🙉</span>
+    <code>:hear_no_evil:</code>
+  </span>  
+  <span class="nowrap">
+    <span class="emojify">🙊</span> 
+    <code>:speak_no_evil:</code>
+  </span>
+</p>
+<br>
+\{\{< css.inline >\}\}
+<style>
+.emojify {
+  font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+  font-size: 2rem;
+  vertical-align: middle;
+}
+@media screen and (max-width:650px) {
+  .nowrap {
+    display: block;
+    margin: 25px 0;
+  }
+}
+</style>
+\{\{< /css.inline >\}\}
 ```
 ***
 
 ### 数学表达式
-Hugo项目中的数学表示法可以通过使用第三方JavaScript库来启用。
-在本例中，我们将使用[KaTeX](https://katex.org/)
-In this example we will be using [KaTeX](https://katex.org/)
 
-- Create a partial under `/layouts/partials/math.html`
-- Within this partial reference the [Auto-render Extension](https://katex.org/docs/autorender.html) or host these scripts locally.
-- Include the partial in your templates like so:  
-
-**注意:** 了解数学表达式其他内容，可参见[Supported TeX Functions](https://katex.org/docs/supported.html)
-
-
-```
-\{\{< math.inline >\}\}
-\{\{ if or .Page.Params.math .Site.Params.math \}\}
-<!-- KaTeX -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.cssintegrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjqcrossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.jsintegrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJzcrossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.jsintegrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkIcrossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
-\{\{ end \}\}
-\{\{</ math.inline >\}\}
-```
-
-#### Examples
+#### 表达式
 
 {{< math.inline >}}
 <p>
@@ -320,33 +320,32 @@ $$
 $$
 ```
 
-***
-
-### Vimeo Simple Shortcode
-
-{{< vimeo_simple 48912912 >}}
+了解更多数学表达式的写法 请参阅[Supported TeX Functions](https://katex.org/docs/supported.html)
 
 ***
 
-### bilibilibi Shortcode
+### bilibili 短代码
 
+    \{\{< bilibili av498363026 >\}\}
 {{< bilibili av498363026 >}}
 
 ***
 
-### Gist Shortcode
+### Gist 短代码
 
+    \{\{< gist spf13 7896402 >\}\}
 {{< gist spf13 7896402 >}}
 
 ***
 
-### Gitlab Snippets Shortcode
+### Gitlab代码片段 短代码
 
+    \{\{< gitlab 2349278 >\}\}
 {{< gitlab 2349278 >}}
 
 ***
 
-### Quote Shortcode
+### Quote 短代码
 
 {{< quote author="A famous person" source="The book they wrote" url="https://en.wikipedia.org/wiki/Book">}}
 quote author source url
