@@ -1,6 +1,18 @@
 ---
-order: 1
-text: javascript常识
+# 帖子的发布作者
+author: mimao
+# 帖子的标题
+title: 初识 javascript中的一些方法
+# 帖子的日期
+date: 2023-07-07
+# 帖子的描述
+description: 认识并了解常见方法
+# 帖子的标签
+tags:
+  - javascript
+# 帖子分类
+categories:
+  - FrontEnd
 ---
 
 # javascript字符串常见方法

@@ -2,11 +2,11 @@
 # 帖子的发布作者
 author: mimao
 # 帖子的标题
-title: jekyll-base
+title: 初识jekyll
 # 帖子的日期
 date: 2023-07-07
 # 帖子的描述
-description: jekyll基础内容
+description: 初识jekyll并快速对jekyll静态页面框架进行了解
 # 帖子的标签
 tags:
   - jekyll
@@ -15,20 +15,9 @@ categories:
   - Blog
 ---
 
-{% raw %}
+# Jekyll静态页面框架
 
-# jekyll基础知识
-## [`返回目录`](./navbar.md)
-### `基础知识大纲` {#content}
-- [**`Content`**](#content-content "内容")内容部分：
-  [`Pages`](#content-pages "页面")页面、[`Posts`](#content-posts "帖子")帖子、[`Front Matter`](#content-front_matter "前事务 即前言")前事务、[`Collections`](#content-collections "集合")集合、[`Data Files`](#content-data_files "数据文件")数据文件、[`Assets`](#content-assets "资产")资产、[`Static Files`](#content-static_files "静态文件")静态文件
-
-    ***
-
-- [**`Site Structure`**](#content-site_structure "站点结构")站点结构部分：
-  [`Directory Structure`](#content-directory_structure "目录结构")目录结构、[`Liquid`](#content-liquid "语法")语法、[`Variables`](#content-variables "变量")变量、[`Includes`](#content-includes "组件")组件、[`Layouts`](#content-layouts "布局")布局、[`Permalinks`](#content-permalinks "链接")链接、[`Themes`](#content-themes "主题")主题、[`Pagination`](#content-pagination "分页")分页
-
-  ***
+## 一.jekyll基础
 
 ### **`Content 内容`**  {#content-content}
 [`返回大纲`](#content) | [`站点结构`](#content-site_structure)
@@ -2882,6 +2871,1027 @@ The following HTML snippet should handle page one, and render a list of each pag
 ```
 
 ***
-到底了...
+
+## 二.深入了解jekyll
+
+### `深入了解jekyll` {#content}
+
+#### Plugins 插件 {#content-plugins}
+[目录](#content) | [下](#content-blog_migrations)
+
+```txt
+Jekyll has a plugin system with hooks that allow you to create custom generated content specific to your site. 
+You can run custom code for your site without having to modify the Jekyll source itself.
+```
+Jekyll有一个带有钩子的插件系统，允许您创建特定于您的网站的自定义生成内容。
+您可以为您的网站运行自定义代码，而无需修改Jekyll源代码本身。
+
+
+```txt
+You can add specific plugins to the whitelist key in _config.yml to allow them to run in safe mode.
+```
+**您可以在_config.yml中的白名单密钥中添加特定的插件，以允许它们在安全模式下运行。**
+
+```txt
+Installation - How to install plugins
+Your first plugin - How to write plugins
+Generators - Create additional content on your site
+Converters - Change a markup language into another format
+Commands - Extend the jekyll executable with subcommands
+Tags - Create custom Liquid tags
+Filters - Create custom Liquid filters
+Hooks - Fine-grained control to extend the build process
+```
+Installation - 如何安装插件
+Your first plugin - 如何编写插件
+Generators - 在您的网站上创建其他内容
+Converters - 将标记语言更改为其他格式
+Commands - 使用子命令扩展jekyll可执行文件
+Tags - 创建自定义Liquid标记
+Filters - 创建自定义Liquid过滤器
+Hooks - 细粒度控制以扩展构建过程
+
 ***
-{% endraw %}
+
+#### Blog Migrations 博客迁移 {#content-blog_migrations}
+[上](#content-plugins) | [下](#content-upgrading)
+
+```txt
+If you’re switching to Jekyll from another blogging system, Jekyll’s importers can help you with the move. 
+To learn more about importing your site to Jekyll, visit our jekyll-import docs site.
+```
+如果你从另一个博客系统切换到Jekyll，Jekyll的进口商可以帮助你。
+要了解有关将您的网站导入Jekyll的更多信息，请访问我们的jekyll-import文档网站。
+
+***
+
+#### Upgrading 升级 {#content-upgrading}
+[上](#content-blog_migrations) | [下](#content-deployment)
+
+```txt
+Upgrading from an older version of Jekyll? 
+Upgrading to a new major version of Jekyll (e.g. from v2.x to v3.x) may cause some headaches. 
+Take the following guides to aid your upgrade:
+```
+从旧版本的Jekyll升级？
+升级到Jekyll的新主要版本（例如从v2.x升级到v3.x）可能会引起一些头痛。
+请参阅以下指南以帮助您升级：
+
+```
+From 0.x to 1.x and 2.x
+From 2.x to 3.x
+From 3.x to 4.x
+```
+
+**Minor updates(次要更新)**
+```txt
+Stay Up to Date
+We recommend you update Jekyll as often as possible to benefit from the latest bug fixes.
+```
+**保持最新**
+**我们建议您尽可能频繁地更新Jekyll，以从最新的错误修复中获益。**
+
+```txt
+If you followed our setup recommendations and installed Bundler, 
+run bundle update jekyll or simply bundle update and all your gems will update to the latest versions.
+
+If you don’t have Bundler installed, run gem update jekyll.
+
+The procedure is similar if you use the github-pages gem.
+```
+如果您遵循了我们的设置建议并安装了Bundler，
+运行`bundle update jekyll` 或简单地运行 `bundle update`，所有gem都将更新到最新版本。
+如果您没有安装Bundler，请运行gem更新jekyll。
+如果您使用github pages gem，则过程与此类似。
+
+***
+
+#### Deployment 部署 {#content-deployment}
+[上](#content-upgrading) | [下](#content-build)
+
+```txt
+Sites built using Jekyll can be deployed in a large number of ways due to the static nature of the generated output. 
+Here’s some of the most common ways:
+Manually
+Automated
+Third Party
+```
+由于生成的输出具有静态性质，使用Jekyll构建的站点可以通过多种方式进行部署。
+以下是一些最常见的方法：
+Manually 手动
+Automated 自动化
+Third Party 第三方
+
+***
+
+### **`Build 构建`**  {#content-build}
+[`返回大纲`](#content) | [下](#content-command_line_usage)
+
+#### Command Line Usage  命令行用法 {#content-command_line_usage}
+[目录](#content) | [Guides 指南](#content-guides) | [下](#content-configuration)
+
+```txt
+The Jekyll gem makes a jekyll executable available to you in your terminal.
+
+The jekyll program has several commands but the structure is always:
+```
+Jekyll gem使您可以在终端中使用Jekyll可执行文件。
+jekyll程序有几个命令，但其结构始终是：
+
+```bash
+jekyll command [argument] [option] [argument_to_option]
+
+Examples:
+    jekyll new site/ --blank
+    jekyll serve --config _alternative_config.yml
+```
+
+```txt
+Typically you’ll use jekyll serve while developing locally and jekyll build when you need to generate the site for production.
+
+For a full list of options and their argument, see Build Command Options.
+
+Here are some of the most common commands:
+```
+通常，您将在本地开发时使用jekyll serve，并在需要生成用于生产的站点时使用jekyll build。
+有关选项及其参数的完整列表，请参见生成命令选项。
+以下是一些最常见的命令：
+
+| command | description |
+| :-: | :- |
+| jekyll new PATH | Creates a new Jekyll site with default gem-based theme at specified path. The directories will be created as necessary. |
+| 译 | 在指定的路径上创建一个新的Jekyll站点，该站点具有默认的基于gem的主题。将根据需要创建目录。 |
+| jekyll new PATH --blank | Creates a new blank Jekyll site scaffold at specified path. |
+| 译 | 在指定的路径上创建一个新的空白Jekyll站点脚手架。 |
+| jekyll build or jekyll b | Performs a one off build your site to ./_site (by default). |
+| 译 | 对执行一次性构建您的网站到 ./_site（默认情况下）。 |
+| jekyll serve or jekyll s | Builds your site any time a source file changes and serves it locally. |
+| 译 | 在源文件更改时随时构建您的网站，并在本地提供服务. |
+| jekyll clean | Removes all generated files: destination folder, metadata file, Sass and Jekyll caches. |
+| 译 | 删除所有生成的文件：目标文件夹、元数据文件、Sass和Jekyll缓存。 |
+| jekyll help | Shows help, optionally for a given subcommand, e.g. jekyll help build. |
+| 译 | 显示给定子命令的帮助（可选），例如jekyll help build。 |
+| jekyll new-theme | Creates a new Jekyll theme scaffold. |
+| 译 | 创建一个新的Jekyll主题脚手架。 |
+| jekyll doctor | Outputs any deprecation or configuration issues. |
+| 译 | 输出任何弃用或配置问题。 |
+
+```txt
+To change Jekyll’s default build behavior have a look through the configuration options.
+```
+要更改Jekyll的默认构建行为，请查看配置选项。
+
+***
+#### Configuration  配置 {#content-configuration}
+[上](#content-command_line_usage) | [下](#content-rendering_process)
+
+```txt
+Jekyll gives you a lot of flexibility to customize how it builds your site. 
+These options can either be specified in a _config.yml or _config.toml file placed in your site’s root directory, 
+or can be specified as flags for the jekyll executable in the terminal.
+
+Configuration Options
+Default Configuration
+Front Matter Defaults
+Environments
+Markdown Options
+Liquid Options
+Sass/SCSS Options
+Webrick Options
+Incremental Regeneration
+```
+Jekyll为您提供了很大的灵活性来定制它如何构建您的网站。
+这些选项可以在位于站点根目录中的_config.yml或_config.toml文件中指定，
+或者可以被指定为在终端中可执行的jekyll的标志。
+
+配置选项
+默认配置
+Front Matter默认
+环境
+Markdown选项
+Liquid选项
+Sass/SCSS选项
+Webrick选项
+增量再生
+
+***
+
+#### Rendering Process  渲染过程 {#content-rendering_process}
+[上](#content-configuration)
+
+```txt
+For any Jekyll site, a build session consists of discrete phases in the following order
+— setting up plugins, reading source files, running generators, rendering templates, and finally writing files to disk.
+
+While the phases above are self-explanatory, the one phase that warrants dissection is the rendering phase.
+
+The rendering phase is further divisible into three optional stages. 
+Every file rendered, passes through one or more of these stages as determined by the file’s content string, front matter and extension. 
+The stages are akin to an assembly line, with the output from a stage being the input for the succeeding stage:
+
+Interpreting Liquid expressions in the file
+This stage evaluates Liquid expressions in the current file. 
+By default, the interpretation is shallow — in that any Liquid expression in resulting output is not further interpreted. 
+Moreover, any Liquid expression in the file’s front matter is left untouched.
+
+Unleashing the converters
+This stage invokes the converter mapped to the current file’s extension and converts the input string. 
+This is when Markdown gets converted into HTML and Sass / Scss into CSS or CoffeeScript into JavaScript, etc, etc. 
+Since this stage is determined by the file’s extension, Markdown or Sass inside a .html file will remain untouched.
+
+Populating the layouts
+By this stage, the source file is considered rendered and it will not be revisited. However, 
+based on the file’s extension and consequently based on the front matter, 
+it is determined whether to take the output string from the preceding stage and place into layouts or not. 
+
+Whereas output from Sass files or CoffeeScript files are never placed into a layout, 
+regular text output can go either ways based on whether a layout has been assigned via the front matter.
+
+Placement into layouts work similar to how Russian dolls encase the smaller ones within itself or how an oyster generates a pearl 
+— the converted output from the preceding stage forms the core and layout(s) are successively rendered separately onto the core.
+```
+对于任何Jekyll站点，构建会话由以下顺序的离散阶段组成
+-设置插件，读取源文件，运行生成器，渲染模板，最后将文件写入磁盘。
+
+虽然上面的阶段是不言自明的，但有必要进行解剖的一个阶段是渲染阶段。
+
+渲染阶段可以进一步划分为三个可选阶段。
+渲染的每个文件都经过一个或多个阶段，这取决于文件的内容字符串、主题和扩展名。
+这些阶段类似于装配线，一个阶段的输出是下一阶段的输入：
+
+解释文件中的Liquid表达式此阶段评估当前文件中的Liquid表达式。
+默认情况下，解释是浅的，因为结果输出中的任何Liquid表达式都不会被进一步解释。
+此外，文件前面的内容中的任何Liquid表达式都保持不变。
+
+释放转换器
+此阶段调用映射到当前文件扩展名的转换器并转换输入字符串。
+这是当Markdown被转换成HTML，Sass/Scss被转换成CSS或CoffeeScript被转换成JavaScript等时。
+由于这个阶段是由文件的扩展名决定的，因此.html文件中的Markdown或Sass将保持不变。
+
+填充布局
+在此阶段，源文件被视为已渲染，不会重新访问。然而
+基于文件的扩展名并且因此基于前面的内容，
+确定是否从前一阶段取得输出字符串并将其放入布局中。
+
+尽管来自Sass文件或CoffeeScript文件的输出从未被放置到布局中，
+常规文本输出可以根据是否已通过前面的内容指定布局来进行任何一种方式。
+
+布局的方式类似于俄罗斯玩偶如何将较小的玩偶包裹在自己体内，或者牡蛎如何产生珍珠
+-来自前一阶段的转换输出形成核心，并且布局被连续地分别呈现到核心上。
+
+***
+
+## 三.案例介绍
+
+1.***安装jekyll环境***
+安装jekyll 和 bundler 依赖
+```
+$ gem install jekyll bundler
+```
+
+2.***创建第一个jekyll项目***
+创建jekyll项目，并命名为 myblog
+```
+$ jekyll new myblog
+```
+> 创建的过程非常长，请耐心等待
+
+3.***项目结构***
+```
+_site #这是运行项目之后，才生成的文件夹（功能如其名）
+    jekyll
+        update
+            2023
+                03
+                    16
+                        welcome-to-jekyll.html
+    assets
+        main.css 
+        main.css.map
+        minima-social-icons.svg
+    about
+        index.html
+    feed.xml
+    404.html
+    index.html
+_ports
+    2023-03-16-welcome-to-jekyll.markdown
+_config.yml
+404.html
+about.markdown
+index.markdown
+Gemfile
+Gemfile.lock
+```
+
+4.***运行项目***
+```
+$ bundler exec jekyll serve
+```
+
+```
+在运行之后，可能会报有关sass方面的错误，解决方法：
+$ gem install sass
+$ gem install compass
+(是否安装完成，输入sass -v  和  compass -v 看是否可以输出版本好)
+安装上面两个依赖就行，继续
+```
+
+> 将--livereload选项传递给serve，以便在对源文件进行每次更改时自动刷新页面：
+> $ bundle exec jekyll serve--livereload
+>
+> 指定 --host  --post
+> 可以更改服务运行时的 主机名 和 端口号
+> 例如：
+> $ bundler exec jekyll serve --host 0.0.0.0 --post 4000
+> 
+> 运行之后，出现的sass警告 不用管
+
+**扩展**
+其他使用方法，请参考：
+[入门教程](https://juejin.cn/post/6844903623567081486)(来源掘金)
+
+
+## 四.jekyll其他部分
+
+### jekyll（tags部分）
+
+```txt
+All of the standard Liquid tags are supported. 
+Jekyll has a few built in tags to help you build your site. 
+You can also create your own tags using plugins.
+```
+支持所有标准的Liquid tag。
+Jekyll有一些内置标签可以帮助你建立你的网站。
+您也可以使用插件创建自己的标签。
+
+
+**Includes**
+
+```txt
+If you have page snippets that you use repeatedly across your site, an include is the perfect way to make this more maintainable.
+```
+如果您有在整个网站上重复使用的页面片段，那么include是使其更易于维护的完美方法。
+
+**Code snippet highlighting(代码段突出显示)**
+
+```txt
+Jekyll has built in support for syntax highlighting of over 100 languages thanks to Rouge. 
+Rouge is the default highlighter in Jekyll 3 and above.
+```
+得益于Rouge，Jekyll内置了对100多种语言语法高亮显示的支持。
+Rouge是Jekyll 3及以上版本中默认的高亮。
+
+```txt
+Using Pygments has been deprecated and is not supported in Jekyll 4; 
+
+the configuration setting highlighter: 
+pygments now automatically falls back to using Rouge which is written in Ruby and 100% compatible with stylesheets for Pygments.
+```
+使用Pygments已被弃用，在Jekyll 4中不支持使用；
+
+配置设置高亮：
+pygments现在自动回到使用Rouge，Rouge是用Ruby编写的，与pygments的样式表100%兼容。
+
+```txt
+To render a code block with syntax highlighting, surround your code as follows:
+```
+要使用语法高亮显示来渲染代码块，请按如下方式环绕代码：
+
+```liquid
+{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+```
+
+```txt
+The argument to the highlight tag (ruby in the example above) is the language identifier. 
+
+To find the appropriate identifier to use for the language you want to highlight, look for the “short name” on the Rouge wiki.
+```
+高亮标记的参数（上例中的ruby）是语言标识符。
+要为要突出显示的语言找到合适的标识符，请在Rouge wiki上查找“短名称”。
+
+```txt
+Jekyll processes all Liquid filters in code blocks
+If you are using a language that contains curly braces, you will likely need to place \{\% raw \%\} and \{\% endraw \%\} tags around your code. 
+Since Jekyll 4.0 , you can add render_with_liquid: false in your front matter to disable Liquid entirely for a particular document.
+```
+Jekyll在代码块中处理所有Liquid筛选器。
+如果您使用的语言包含大括号，则可能需要在代码周围放置｛% raw% ｝和｛% endraw %} 标记。
+自Jekyll 4.0以来，您可以在前面的内容中添加 render_with_liquid:false ，以完全禁用特定文档的liquid。
+
+**Line numbers(行号)**
+
+```txt
+There is a second argument to highlight called linenos that is optional. 
+Including the linenos argument will force the highlighted code to include line numbers. 
+For instance, the following code block would include line numbers next to each line:
+```
+还有第二个要突出显示的参数linenos是可选的。
+包含linenos参数将强制高亮显示的代码包含行号。
+例如，以下代码块将包括每行旁边的行号：
+
+```liquid
+{% highlight ruby linenos %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+```
+
+**Marking specific lines4.4.0(标记特定线条)**
+
+```txt
+You can mark specific lines in a code snippet by using the optional argument mark_lines. 
+This argument takes a space-separated list of line numbers which must be wrapped in double quotes. 
+For example, the following code block will mark lines 1 and 2 but not line 3:
+```
+您可以使用可选参数mark_lines来标记代码段中的特定行。
+此参数采用一个以空格分隔的行号列表，该列表必须用双引号括起来。
+例如，以下代码块将标记第1行和第2行，但不标记第3行：
+
+```liquid
+{% highlight ruby mark_lines="1 2" %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+```
+
+```txt
+A default class name of hll will be applied to the marked lines.
+```
+hll的默认类名将应用于标记的行。
+
+**Stylesheets for syntax highlighting(语法高亮显示的样式表)**
+
+```txt
+In order for the highlighting to show up, you’ll need to include a highlighting stylesheet. 
+For Pygments or Rouge you can use a stylesheet for Pygments, you can find an example gallery here or from its repository.
+
+Copy the CSS file (native.css for example) into your css directory and import the syntax highlighter styles into your main.css:
+```
+为了显示高亮显示，您需要包含一个高亮显示样式表。
+对于Pygments或Rouge，您可以使用Pygments的样式表，您可以在此处或其存储库中找到示例库。
+将CSS文件（例如native.CSS）复制到CSS目录中，并将语法高亮样式导入到main.CSS中：
+
+```css
+@import "native.css";
+```
+
+
+**Links**
+```txt
+Since Jekyll 4.0 , you don’t need to prepend link and post_url tags with site.baseurl.
+```
+自从Jekyll 4.0以来，您不需要使用 site.baseurl 来准备链接和post_url标签。
+
+
+**Linking to pages(链接到页面)**
+```txt
+To link to a post, a page, collection item, or file, the link tag will generate the correct permalink URL for the path you specify. 
+For example, if you use the link tag to link to mypage.html, even if you change your permalink style to include the file extension or omit it, 
+the URL formed by the link tag will always be valid.
+
+You must include the file’s original extension when using the link tag. Here are some examples:
+```
+要链接到帖子、页面、收藏项目或文件，链接标记将为您指定的路径生成正确的永久链接URL。
+例如，如果您使用链接标记链接到mypage.html，即使您更改了永久链接样式以包含或省略文件扩展名，
+由链接标签形成的URL将始终是有效的。
+
+使用链接标记时，必须包含文件的原始扩展名。以下是一些例子：
+```liquid
+{% link _collection/name-of-document.md %}
+{% link _posts/2016-07-26-name-of-post.md %}
+{% link news/index.html %}
+{% link /assets/files/doc.pdf %}
+```
+
+```txt
+You can also use the link tag to create a link in Markdown as follows:
+```
+您也可以使用链接标记在Markdown中创建链接，如下所示：
+```liquid
+[Link to a document]({% link _collection/name-of-document.md %})
+[Link to a post]({% link _posts/2016-07-26-name-of-post.md %})
+[Link to a page]({% link news/index.html %})
+[Link to a file]({% link /assets/files/doc.pdf %})
+```
+
+```txt
+The path to the post, page, or collection is defined as the path relative to the root directory (where your config file is) to the file, 
+not the path from your existing page to the other page.
+
+For example, suppose you’re creating a link in page_a.md (stored in pages/folder1/folder2) to page_b.md (stored in pages/folder1). 
+Your path in the link would not be ../page_b.html. Instead, it would be /pages/folder1/page_b.md.
+
+If you’re unsure of the path, add {{ page.path }} to the page and it will display the path.
+
+One major benefit of using the link or post_url tag is link validation. 
+If the link doesn’t exist, Jekyll won’t build your site. 
+This is a good thing, as it will alert you to a broken link so you can fix it 
+(rather than allowing you to build and deploy a site with broken links).
+
+Note you cannot add filters to link tags. For example, you cannot append a string using Liquid filters, 
+such as {% link mypage.html | append: "#section1" %}. 
+To link to sections on a page, you will need to use regular HTML or Markdown linking techniques.
+
+The name of the file you want to link can be specified as a variable instead of an actual file name. 
+For example, suppose you defined a variable in your page’s front matter like this:
+```
+帖子、页面或集合的路径定义为相对于文件的根目录（配置文件所在的位置）的路径，
+而不是从现有页面到另一个页面的路径。
+
+例如，假设您正在page_a.md（存储在 `pages/folder1/folder2` 中）中创建到`page_b.md`（存储在 `pages/folder1` 中）的链接。
+你在链接中的路径不会是 `/page_b.html`。相反，它将是 `/pages/folder1/page_b.md`。
+
+如果您不确定路径，请将 `{{page.path}}` 添加到页面中，它将显示路径。
+使用link或post_url标记的一个主要好处是链接验证。
+
+如果链接不存在，杰基尔就不会建立你的网站。
+
+这是一件好事，因为它会提醒你断开的链接，这样你就可以修复它
+（而不是允许您构建和部署一个链接断开的网站）。
+请注意，不能将筛选器添加到链接标记中。例如，不能使用Liquid过滤器附加字符串，
+例如 `｛%link mypage.html | append:“#section1”%｝`。
+要链接到页面上的部分，您需要使用常规的HTML或Markdown链接技术。
+
+可以将要链接的文件名指定为变量，而不是实际的文件名。
+例如，假设您在页面的首页中定义了一个变量，如下所示：
+
+```liquid
+---
+title: My page
+my_variable: footer_company_a.html
+---
+```
+
+```txt
+You could then reference that variable in your link:
+```
+然后，您可以在链接中引用该变量：
+
+```liquid
+{% link {{ page.my_variable }} %}
+```
+
+```txt
+In this example, the link tag would render a link to the file footer_company_a.html.
+```
+在本例中，链接标记将呈现到文件footer_company_a.html的链接。
+
+**Linking to posts(链接到帖子)**
+
+```txt
+If you want to include a link to a post on your site, the post_url tag will generate the correct permalink URL for the post you specify.
+```
+如果你想在网站上包含一个帖子链接，post_url标签会为你指定的帖子生成正确的永久链接url。
+
+```liquid
+{% post_url 2010-07-21-name-of-post %}
+```
+
+```txt
+If you organize your posts in subdirectories, you need to include subdirectory path to the post:
+```
+如果你在子目录中组织你的帖子，你需要包括帖子的子目录路径：
+
+```liquid
+{% post_url /subdir/2010-07-21-name-of-post %}
+```
+
+```txt
+There is no need to include the file extension when using the post_url tag.
+
+You can also use this tag to create a link to a post in Markdown as follows:
+```
+使用post_url标记时，不需要包含文件扩展名。
+您也可以使用此标记创建指向Markdown中帖子的链接，如下所示：
+
+```liquid
+[Name of Link]({% post_url 2010-07-21-name-of-post %})
+```
+
+### jekyll(filters部分)
+
+#### Liuqid Filters
+
+```txt
+All of the standard Liquid filters are supported (see below).
+
+To make common tasks easier, Jekyll even adds a few handy filters of its own, all of which you can find on this page. 
+You can also create your own filters using plugins.
+```
+支持所有标准 `Liquid` 过滤器（见下文）。
+为了简化常见任务，Jekyll甚至添加了一些自己的方便过滤器，所有这些都可以在这个页面上找到。
+您也可以使用插件创建自己的过滤器。
+
+#### 过滤器介绍：
+
+| name | description | filter and output |
+| :-: | :- | :-: |
+| Relative URL | Prepend baseurl config value to the input to convert a URL path into a relative URL. <br> This is recommended for a site that is hosted on a subpath of a domain. | `{{ "/assets/style.css" | relative_url }}` <br> `/my-baseurl/assets/style.css` |
+| 译 | 将baseurl配置值前置到输入，以将URL路径转换为相对URL。<br> 对于托管在域的子路径上的网站，建议这样做。 |  |
+| Absolute URL | Prepend url and baseurl values to the input to convert a URL path to an absolute URL. | `{{ "/assets/style.css" | absolute_url }}` <br> `http://example.com/my-baseurl/assets/style.css` |
+| 译 | 将url和baseurl值前置到输入，以将url路径转换为绝对url。 |  |
+| Date to XML Schema | Convert a Date into XML Schema (ISO 8601) format. | `{{ site.time | date_to_xmlschema }}`<br>`2008-11-07T13:07:54-08:00` |
+| 译 | 将日期转换为XML模式（ISO 8601）格式。 |  |
+| Date to RFC-822 Format | Convert a Date into the RFC-822 format used for RSS feeds. | `{{ site.time | date_to_rfc822 }}`<br>`Mon, 07 Nov 2008 13:07:54 -0800` |
+| 译 | 将Date转换为用于RSS提要的RFC-822格式。 |  |
+| Date to String | Convert a date to short format. | `{{ site.time | date_to_string }}`<br>`07 Nov 2008` |
+| 译 | 将日期转换为短格式。 |  |
+| Date to String in ordinal US style | Format a date to ordinal, US, short format. 3.8.0 | `{{ site.time | date_to_string: "ordinal", "US" }}`<br>`Nov 7th, 2008` |
+| 译 | 将日期格式设置为序号、美国短格式。3.8.0 |  |
+| Date to Long String | Format a date to long format. | `{{ site.time | date_to_long_string }}`<br>`07 November 2008` |
+| 译 | 将日期设置为长格式。 |  |
+| Date to Long String in ordinal UK style | Format a date to ordinal, UK, long format. 3.8.0 | `{{ site.time | date_to_long_string: "ordinal" }}`<br>`7th November 2008` |
+| 译 | 将日期格式设置为序数、英国、长格式。3.8.0 |  |
+| Where | Select all the objects in an array where the key has the given value. | `{{ site.members | where:"graduation_year","2014" }}` |
+| 译 | 选择数组中键具有给定值的所有对象。 |  |
+| Where Expression | Select all the objects in an array where the expression is true. 3.2.0 | `{{ site.members | where_exp:"item","item.graduation_year == 2014" }}`<br>`{{ site.members | where_exp:"item","item.graduation_year < 2014" }}`<br>`{{ site.members | where_exp:"item","item.projects contains 'foo'" }}` |
+| 译 | 选择数组中表达式为true的所有对象。3.2.0 |  |
+| Find | Return the first object in an array for which the queried attribute has the given value or return nil <br> if no item in the array satisfies the given criteria. 4.1.0 | `{{ site.members | find: "graduation_year", "2014" }}` |
+| 译 | 返回数组中查询属性具有给定值的第一个对象，<br>或者如果数组中没有项目满足给定条件，则返回nil。4.1.0 |  |
+| Find Expression | Return the first object in an array for which the given expression evaluates to true or <br> return nil if no item in the array satisfies the evaluated expression. 4.1.0 | `{{ site.members | find_exp:"item","item.graduation_year == 2014" }}`<br>`{{ site.members | find_exp:"item","item.graduation_year < 2014" }}`<br>`{{ site.members | find_exp:"item","item.projects contains 'foo'" }} |
+| 译 | 返回数组中给定表达式计算结果为true的第一个对象，<br>如果数组中没有项满足计算结果的表达式，则返回nil。4.1.0 |  |
+| Group By | Group an array's items by a given property. | `{{ site.members | group_by:"graduation_year" }}`<br>`[{"name"=>"2013", "items"=>[...]},{"name"=>"2014", "items"=>[...]}]` |
+| 译 | 根据给定的属性对数组的项进行分组。 | |
+| Group By Expression | Group an array's items using a Liquid expression. 3.4.0 | `{{ site.members | group_by_exp: "item","item.graduation_year | truncate: 3, ''" }}`<br>`[{"name"=>"201", "items"=>[...]},{"name"=>"200", "items"=>[...]}]` |
+| 译 | 使用Liquid表达式对数组的项进行分组。3.4.0 | |
+| XML Escape | Escape some text for use in XML. | `{{ page.content | xml_escape }}` |
+| 译 | 转义一些文本以用于XML。 | |
+| CGI Escape | CGI escape a string for use in a URL. <br> Replaces any special characters with appropriate %XX replacements. <br> CGI escape normally replaces a space with a plus + sign. | `{{ "foo, bar; baz?" | cgi_escape }}`<br>`foo%2C+bar%3B+baz%3F` |
+| 译 | CGI对字符串进行转义，以便在URL中使用<br>用适当的 %XX 替换来替换任何特殊字符<br>CGI转义通常用加号替换空格。 |  |
+| URI Escape | Percent encodes any special characters in a URI. <br> URI escape normally replaces a space with %20. <br> Reserved characters will not be escaped. | `{{ "http://foo.com/?q=foo, \bar?" | uri_escape }}` <br> `http://foo.com/?q=foo,%20%5Cbar?` |
+| 译 | Percent对URI中的任何特殊字符进行编码<br>URI转义通常会将空格替换为 %20 <br>保留字符将不会被转义。 |  |
+| Number of Words | Count the number of words in some text.<br>From v4.1.0, this filter takes an optional argument to control the handling of Chinese-Japanese-Korean (CJK) characters in the input string.<br>Passing 'cjk' as the argument will count every CJK character detected as one word irrespective of being separated by whitespace.<br>Passing 'auto' (auto-detect) works similar to 'cjk' but is more performant if the filter is used on a variable string that may or may not contain CJK chars. | `{{ "Hello world!" | number_of_words }}` <br> 2 <br> `{{ "你好hello世界world" | number_of_words }}` <br> 1 <br> `{{ "你好hello世界world" | number_of_words: "cjk" }}` <br> 6 <br> `{{ "你好hello世界world" | number_of_words: "auto" }}` <br> 6 <br> |
+| 译 | 计算一些文本中的字数<br>从v4.1.0开始，此筛选器采用一个可选参数来控制输入字符串中中日韩（CJK）字符的处理<br>传递“cjk”作为参数将把检测到的每个cjk字符计算为一个单词，而不考虑是否用空格分隔<br>传递“auto”（自动检测）的工作原理类似于“cjk”，但如果过滤器用于可能包含或不包含cjk字符的变量字符串，则性能更高。 |  |
+| Array to Sentence | Convert an array into a sentence. <br> Useful for listing tags. <br> Optional argument for connector. | `{{ page.tags | array_to_sentence_string }}` <br> `foo, bar, and baz` <br> `{{ page.tags | array_to_sentence_string: "or" }}` <br> `foo, bar, or baz` |
+| 译 | 将数组转换成句子<br>用于列出标记<br>连接器的可选参数。 |  |
+| Markdownify | Convert a Markdown-formatted string into HTML. | `{{ page.excerpt | markdownify }}` |
+| 译 | 将Markdown格式的字符串转换为HTML。 |  |
+| Smartify | Convert "quotes" into “smart quotes.” | `{{ page.title | smartify }}` |
+| 译 | 将“引号”转换为“智能引号” |  |
+| Converting Sass/SCSS | Convert a Sass- or SCSS-formatted string into CSS. | `{{ some_sass | sassify }}`<br>`{{ some_scss | scssify }}` |
+| 译 | 将Sass或SCSS格式的字符串转换为CSS。 |  |
+| Slugify | Convert a string into a lowercase URL "slug". <br> See below for options. | `{{ "The _config.yml file" | slugify }}` <br> `the-config-yml-file` <br> `{{ "The _config.yml file" | slugify: "pretty" }}` <br> `the-_config.yml-file` <br> `{{ "The _cönfig.yml file" | slugify: "ascii" }}` <br> `the-c-nfig-yml-file` <br> `{{ "The cönfig.yml file" | slugify: "latin" }}`<br>`the-config-yml-file` |
+| 译 | 将字符串转换为小写URL“slug”<br>请参阅以下选项。 |  |
+| Data To JSON | Convert Hash or Array to JSON. | `{{ site.data.projects | jsonify }}` |
+| 译 | 将哈希或数组转换为JSON。 |  |
+| Normalize Whitespace | Replace any occurrence of whitespace with a single space. | `{{ "a \n b" | normalize_whitespace }}` |
+| 译 | 用单个空格替换任何出现的空格。 |  |
+| Sort | Sort an array. Optional arguments for hashes 1. property name 2. nils order (first or last). | `{{ page.tags | sort }}`<br>`{{ site.posts | sort: "author" }}`<br>`{{ site.pages | sort: "title", "last" }}` |
+| 译 | 对数组进行排序。哈希1的可选参数。属性名称2。幂零顺序（第一个或最后一个）。 |  |
+| Sample | Pick a random value from an array. <br> Optionally, pick multiple values. | `{{ site.pages | sample }}`<br>`{{ site.pages | sample: 2 }}` |
+| 译 | 从数组中选择一个随机值<br>可选地，选择多个值。 |  |
+| To Integer | Convert a string or boolean to integer. | `{{ some_var | to_integer }}` |
+| 译 | 将字符串或布尔值转换为整数。 |  |
+| Array Filters | Push, pop, shift, and unshift elements from an Array. <br> These are NON-DESTRUCTIVE, i.e. they do not mutate the array, but rather make a copy and mutate that. | `{{ page.tags | push: "Spokane" }}`<br>`["Seattle", "Tacoma", "Spokane"]`<br>`{{ page.tags | pop }}`<br>`["Seattle"]`<br>`{{ page.tags | shift }}`<br>`["Tacoma"]`<br>`{{ page.tags | unshift: "Olympia" }}`<br>`["Olympia", "Seattle", "Tacoma"]` |
+| 译 | 从数组中推送、弹出、移位和取消移位元素<br>这些是非破坏性的，即它们不会使数组发生突变，而是复制并使其发生突变。 |  |
+| Inspect | Convert an object into its String representation for debugging. | `{{ some_var | inspect }}` |
+| 译 | 将对象转换为其字符串表示形式以进行调试。 |  |
+
+***
+
+**Options for the slugify filter(slugify过滤器选项)**
+
+```txt
+The slugify filter accepts an option, each specifying what to filter. 
+The default is default. 
+They are as follows (with what they filter):
+```
+slugify过滤器接受一个选项，每个选项都指定要过滤的内容。
+默认值为默认值。
+它们如下（以及它们过滤的内容）：
+```txt
+none: no characters
+无字符
+raw: spaces
+空格
+default: spaces and non-alphanumeric characters
+空格和非字母数字字符
+pretty: spaces and non-alphanumeric characters except for ._~!$&'()+,;=@
+空格和非字母数字字符，除了 ._~!$&'()+,;=@
+ascii: spaces, non-alphanumeric, and non-ASCII characters
+空格，非字母数字字符 和 非ASCII字符
+latin: like default, except Latin characters are first transliterated (e.g. àèïòü to aeiou)3.7.0 .
+与默认情况一样，除了 拉丁字符 是第一个音译的（例如，从ïòü到aeiou）3.7.0。
+```
+
+```txt
+Detecting nil values with where filter 4.0
+```
+使用where filter 4.0检测零值
+
+```txt
+You can use the where filter to detect documents and pages with properties that are nil or "". 
+For example,
+```
+您可以使用 where筛选器 检测财产为 零或“” 的文档和页面。
+例如，
+
+```liquid
+// Using `nil` to select posts that either do not have `my_prop`
+// defined or `my_prop` has been set to `nil` explicitly.
+{% assign filtered_posts = site.posts | where: 'my_prop', nil %}
+```
+```liquid
+// Using Liquid's special literal `empty` or `blank` to select
+// posts that have `my_prop` set to an empty value.
+{% assign filtered_posts = site.posts | where: 'my_prop', empty %}
+```
+
+**Binary operators in where_exp filter4.0(where _exp过滤器中的二进制运算符)**
+
+```txt
+You can use Liquid binary operators or and and in the expression passed to the where_exp filter to employ multiple conditionals in the operation.
+
+For example, to get a list of documents on English horror flicks, one could use the following snippet:
+```
+可以在传递给where_exp过滤器的表达式中使用Liquid二进制运算符或和，以便在操作中使用多个条件。
+例如，要获得英国恐怖电影的文档列表，可以使用以下片段：
+
+```liquid
+{{ site.movies | where_exp: "item", "item.genre == 'horror' and item.language == 'English'" }}
+```
+
+```txt
+Or to get a list of comic-book based movies, one may use the following:
+```
+或者，要获得基于漫画的电影列表，可以使用以下内容：
+
+```liquid
+{{ site.movies | where_exp: "item", "item.sub_genre == 'MCU' or item.sub_genre == 'DCEU'" }}
+```
+
+**Standard Liquid Filters(标准Liquid过滤器)**
+
+```txt
+For your convenience, here is the list of all Liquid filters with links to examples in the official Liquid documentation.
+```
+为了方便您，以下是所有Liquid过滤器的列表，并附有官方Liquid文档中示例的链接。
+
+
+[去查看](https://shopify.github.io/liquid/filters/abs/ "Liquid文档")
+
+```
+abs
+
+append
+
+at_least
+
+at_most
+
+capitalize
+
+ceil
+
+compact
+
+concat
+
+date
+
+default
+
+divided_by
+
+downcase
+
+escape
+
+escape_once
+
+first
+
+floor
+
+join
+
+last
+
+lstrip
+
+map
+
+minus
+
+modulo
+
+newline_to_br
+
+plus
+
+prepend
+
+remove
+
+remove_first
+
+replace
+
+replace_first
+
+reverse
+
+round
+
+rstrip
+
+size
+
+slice
+
+sort
+
+sort_natural
+
+split
+
+strip
+
+strip_html
+
+strip_newlines
+
+times
+
+truncate
+
+truncatewords
+
+uniq
+
+upcase
+
+url_decode
+
+url_encode
+```
+
+***
+
+### jekyll(front matter默认值部分)
+
+
+可以为 前事项(front matter)设置默认值
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "default"
+
+
+jekyll中的生产环境和开发环境 判断
+生产环境
+{% if jekyll.environment == "production" %}
+   {% include disqus.html %}
+{% endif %}
+生产环境
+{% if jekyll.environment == "production" %}
+   {% include disqus.html %}
+{% endif %}
+
+默认 运行环境为：development （开发环境）
+JEKYLL_ENV=development 是默认值
+
+如果需要 生产环境中需要显示的内容显示，需要在运行构建命令上指定，例如：
+JEKYLL_ENV=production jekyll build 
+该命令 才会让上述的 生产环境变量 判断中的内容 才会执行
+
+这样做的目的：
+通过指定环境值，可以使某些内容仅在特定环境中可用。
+
+除此之外，还可以使用build命令，来指定 特定环境中使用的 _config.yaml文件：
+在build命令中，添加 --config _config.yml 或--config _config_development.yml 则可以实现
+
+
+
+Markdown 选项（介绍 Kramdown ）
+Jekyll支持的各种Markdown渲染器有时会提供额外的选项。
+
+Kramdown是Jekyll的默认Markdown渲染器，通常在没有额外配置的情况下运行良好。但是，它确实支持许多配置选项。
+
+Kramdown 处理器 介绍：
+默认情况下，Jekyll为Kramdown使用GitHub Flavored Markdown（GFM）处理器。（指定输入：GFM很好，但是多余的。）
+GFM支持几个额外的Kramdown选项，由Kramdown解析器GFM记录。
+这些选项可以直接在Kramdown Jekyll配置中使用，如下所示：
+```yaml
+kramdown:
+  gfm_quirks: [paragraph_end]
+
+这样的配置是多余的，因为 jekyll为其提供了默认的 GFM处理器
+
+如果 不想使用 jekyll默认提供的处理器，可以这样做：
+kramdown:
+  input: Kramdown
+
+Kramdown文档中提供了Kramdowns解析器的文档。如果您使用的是Kramdown或GFM以外的Kramdown解析器，则需要为其添加gem。（也就是 安装gem依赖）
+```
+如果 需要使用 kramdown 中的语法高亮，则 必须 安装 其gem依赖，命令如下：
+```ruby
+$ bundle add kramdown-syntax-coderay
+```
+然后，您可以在syntax_highlighter配置项中指定CodeRay，例如：
+```yaml
+kramdown:
+  syntax_highlighter: coderay
+```
+除了可以使用之外，还有其自己的配置选项，，可以作为syntax_highlighter_opts 配置项的值进行传递，如下所示：
+(CodeRay支持几个自己的配置选项，这些选项记录在kramdown语法CodeRay文档中 [`去文档看看`](https://github.com/kramdown/syntax-coderay))
+```yaml
+kramdown:
+  syntax_highlighter: coderay
+  syntax_highlighter_opts:
+    line_numbers: table
+    bold_every: 5
+```
+
+
+Liquid 配置
+
+```yaml
+liquid:
+  error_mode: strict
+  strict_variables: true
+  strict_filters: true
+```
+如上所述进行配置将停止生成/服务，并调用有问题的错误并停止。当您希望通过停止构建或服务过程来发现与液体相关的问题，
+并允许您处理任何问题时，这是很有帮助的。
+
+帖子 摘录
+在前事项中添加：excerpt_separator: <!--more--> 可以指定 摘录部分
+默认：分隔是<!--more-->，所以可以通过 excerpt_separator 指定
+
+可以通过：post.excerpt 来使用
+
+为静态文件添加front matter变量：
+```yaml
+defaults:
+  - scope:
+      path: "assets/img"
+    values:
+      image: true
+```
+```liquid
+{% assign image_files = site.static_files | where: "image", true %}
+{% for myimage in image_files %}
+  {{ myimage.path }}
+{% endfor %}
+```
+当你建立你的网站时，输出会列出每个符合这个front matter 条件的文件的路径。
+
+***
+
+### jekyll(seo部分)
+
+```txt
+Jekyll中的SEO是指通过改进网站的结构、内容和元数据等方面的优化，以提高网站在搜索引擎中的排名和曝光度，
+从而吸引更多的流量和用户。Jekyll本身并不会为网站提供SEO优化，
+但是通过合理的架构设计、关键词优化、页面标题和描述等元素的设置，可以提高网站在搜索引擎中的可见性和排名。
+
+
+
+jekyll-seo-tag插件是一个用于Jekyll静态网站生成器的插件，
+它可以自动生成搜索引擎优化（SEO）标签，包括页面标题、描述、关键字、作者和其他元数据。
+
+使用jekyll-seo-tag插件可以让你更方便地为你的网站优化SEO，使其在搜索引擎中更容易被发现和索引。
+它还可以帮助你确保每个页面都有独特的元数据，从而提高网站的整体质量和可发现性。
+
+要使用jekyll-seo-tag插件，只需将其添加到你的Jekyll项目中，并在你的模板中使用它提供的标记来生成SEO标签。
+你可以自定义标签的内容和格式，以适应你的具体需求。
+```
+
+***
+
+### jekyll(gem source部分)
+
+***配置方法***
+
+**查找默认源**
+```
+$ gem sources
+```
+
+**移除默认源**
+```
+$ gem sources --remove https://rubygems.org/
+```
+
+**添加新源**(阿里镜像源)
+```
+$ gem sources -a https://mirrors.aliyun.com/rubygems/
+```
+
+**相关链接**
+
+- [`rubygems官方主页`](https://rubygems.org/ "去rubygems的主页")
+
+- [`阿里云镜像 rubygems的source配置`](https://developer.aliyun.com/mirror/rubygems?spm=a2c6h.13651102.0.0.406e1b119qGH4Y "去查看阿里云镜像 rubygems的source配置")

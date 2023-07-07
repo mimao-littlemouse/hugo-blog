@@ -1,6 +1,18 @@
 ---
-order: 1
-text: boa服务器部署
+# 帖子的发布作者
+author: mimao
+# 帖子的标题
+title: 初识 boa服务器
+# 帖子的日期
+date: 2023-07-07
+# 帖子的描述
+description: 初识boa服务器并快速对其进行了解
+# 帖子的标签
+tags:
+  - boa
+# 帖子分类
+categories:
+  - Liunx
 ---
 
 # boa服务器部署步骤

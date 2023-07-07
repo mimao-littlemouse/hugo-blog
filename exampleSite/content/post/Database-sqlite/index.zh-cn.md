@@ -1,6 +1,18 @@
 ---
-order: 1
-text: sqlite介绍
+# 帖子的发布作者
+author: mimao
+# 帖子的标题
+title: 初识 sqlite
+# 帖子的日期
+date: 2023-07-07
+# 帖子的描述
+description: 初识sqlite并快速对sqlite数据库进行了解
+# 帖子的标签
+tags:
+  - sqlite
+# 帖子分类
+categories:
+  - Database
 ---
 
 # sqlite简单介绍

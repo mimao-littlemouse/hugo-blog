@@ -1,8 +1,19 @@
 ---
-order: 1
-text: bootstrap5
+# 帖子的发布作者
+author: mimao
+# 帖子的标题
+title: 初识 bootstrap5
+# 帖子的日期
+date: 2023-07-07
+# 帖子的描述
+description: 初识bootstrap5并快速对bootstrap5框架进行了解
+# 帖子的标签
+tags:
+  - bootstrap5
+# 帖子分类
+categories:
+  - Css
 ---
-{% raw %}
 
 # BootStrap5
 
@@ -695,5 +706,3 @@ stretch  元素高度自适应
 						当元素未设置高度时，该元素的高度会与容器等高对齐
 	js组件
 ```
-
-{% endraw %}
