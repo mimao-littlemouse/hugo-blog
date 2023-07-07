@@ -229,7 +229,8 @@ markup:
     goldmark:
         renderer:
             ## Set to true if you have HTML content inside Markdown
-            unsafe: false
+            # 如果内容中有 html 标签需要进行插入，则 需要将unsafe打开
+            unsafe: true
     tableOfContents:
         endLevel: 4
         ordered: true
