@@ -208,7 +208,7 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
 
 ### 超链接图片
 
-[![小刘]()](https://mimao-hugo-blog.netlify.app/img/avatar_hudf0dd1d9cae34683258bdfb374497f7c_46309_300x0_resize_box_3.png)
+[![小刘]({{ref . "#超链接图片"}})](https://mimao-hugo-blog.netlify.app/img/avatar_hudf0dd1d9cae34683258bdfb374497f7c_46309_300x0_resize_box_3.png)
 
 ***
 
@@ -249,11 +249,11 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
 </style>
 {{< /css.inline >}}
 
-{{< highlight html >}}
-    <p><span class="nowrap"><span class="emojify">🙈</span> <code>:see_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙉</span> <code>:hear_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙊</span> <code>:speak_no_evil:</code></span></p>
+```
+<p><span class="nowrap"><span class="emojify">🙈</span> <code>:see_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙉</span> <code>:hear_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙊</span> <code>:speak_no_evil:</code></span></p>
     <br>
 
-    {{ print "{{< css.inline >}}" }}
+    \{\{< css.inline >\}\}
     <style>
     .emojify {
       font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
@@ -267,9 +267,8 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
       }
     }
     </style>
-    {{ print "{{< /css.inline >}}" }}
-{{< /highlight >}}
-
+    \{\{< /css.inline >\}\}
+```
 ***
 
 ### 数学表达式
@@ -323,19 +322,6 @@ $$
 
 ***
 
-### YouTube Privacy Enhanced Shortcode
-
-    {{< youtube ZJthWmvUzzc >}}
-{{< youtube ZJthWmvUzzc >}}
-
-***
-
-### Twitter Simple Shortcode
-
-{{< twitter_simple user="DesignReviewed" id="1085870671291310081" >}}
-
-***
-
 ### Vimeo Simple Shortcode
 
 {{< vimeo_simple 48912912 >}}
@@ -378,18 +364,20 @@ quote source
 quote author
 {{< /quote >}}
 
-    \{\{< quote author="A famous person" source="The book they wrote" url="https://en.wikipedia.org/wiki/Book">\}\}
-    quote author source url
-    \{\{< /quote >\}\}
+```
+\{\{< quote author="A famous person" source="The book they wrote" url="https://en.wikipedia.org/wiki/Book">\}\}
+quote author source url
+\{\{< /quote >\}\}
 
-    \{\{< quote source="Anonymous book" url="https://en.wikipedia.org/wiki/Book">\}\}
-    quote source url
-    \{\{< /quote >\}\}
+\{\{< quote source="Anonymous book" url="https://en.wikipedia.org/wiki/Book">\}\}
+quote source url
+\{\{< /quote >\}\}
 
-    \{\{< quote source="Some book">\}\}
-    quote source
-    \{\{< /quote >\}\}
+\{\{< quote source="Some book">\}\}
+quote source
+\{\{< /quote >\}\}
 
-    \{\{< quote author="Somebody">\}\}
-    quote author
-    \{\{< /quote >\}\}
+\{\{< quote author="Somebody">\}\}
+quote author
+\{\{< /quote >\}\}
+```
