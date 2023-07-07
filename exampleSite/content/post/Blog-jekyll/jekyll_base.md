@@ -1,7 +1,20 @@
 ---
-order: 2
-text: 基础知识
+# 帖子的发布作者
+author: mimao
+# 帖子的标题
+title: jekyll-base
+# 帖子的日期
+date: 2023-07-07
+# 帖子的描述
+description: jekyll基础内容
+# 帖子的标签
+tags:
+  - jekyll
+# 帖子分类
+categories:
+  - Blog
 ---
+
 {% raw %}
 
 # jekyll基础知识

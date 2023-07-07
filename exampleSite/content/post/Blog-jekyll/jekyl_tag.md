@@ -2,7 +2,7 @@
 # 帖子的发布作者
 author: mimao
 # 帖子的标题
-title: 初识 tag
+title: jekyll-tag
 # 帖子的日期
 date: 2023-07-07
 # 帖子的描述
@@ -20,7 +20,7 @@ categories:
 
 # jekyll基础(tags部分)
 
-#### [返回](./jekyll_base.md "jekyll基础(tags部分)")
+#### [返回]({{ ref . "/jekyll-base" }} "jekyll基础(tags部分)")
 
 ## Tags Filters
 
