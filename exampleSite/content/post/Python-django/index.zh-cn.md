@@ -1,8 +1,23 @@
 ---
-order: 1
-text: django基础
+# 帖子的发布作者
+author: mimao
+# 帖子的标题
+title: 初识 Python Django
+# 帖子的日期
+date: 2023-07-07
+# 帖子的描述
+description: 初识Python Django并快速对其进行了解
+# 帖子的标签
+tags:
+  - python-django
+# 帖子分类
+categories:
+  - Python
 ---
-{% raw %}
+
+# 初始django框架
+
+## django简介
 
 django
 	简介
@@ -682,4 +697,304 @@ avator = FileField(verbose_name='',,upload_to='地址或目录（指media目录�
 						也可以使用form 进行
 							手动保存（）这就是与 modelform的区别，一个有model 一个没有model
 
-{% endraw %}
+
+***
+
+## 初创 django 项目
+
+
+创建django项目：
+1.首先，决定好项目名称
+在存放项目的文件夹中，打开cmd,输入：django-admin startproject 项目名称
+2.创建好基本目录之后，该目录只是用作url以及项目配置的，真正用于开发的，是创建app进行页面和路由的开发
+3.创建app,将目录切入到含有manage.py的文件夹中，打开cmd输入: python manage.py startapp 项目名称_web也行(自己定义)
+4.对 app进行注册，在settings.py中的install_app配置项中，添加：app名称.apps.app名称所有单词大写Config  即可
+5.并在settings.py中配置好static文件夹，找到static_url选项，在其下面书写：STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')] 
+注意：os模块需自己在文件内容顶部(导入path的下面)导入
+6.在项目根目录(即：含有manage.py文件的文件夹中)，创建static文件夹，并搭建好： css js img plugins的目录结构
+7.然后，在app目录下，创建templates文件夹，并创建 app名称 app名称_layout 两个文件夹
+（注意：在views中render templates中的html文件的时候，带上app名称 app名称_layout 或其他app中的app名称 app名称_layout 
+（这样可以避免 render的时候使用同一个html文件）） 这是一个重点
+8.之后，便可以在根目录下，打开cmd，输入 python manage.py migrate 实现迁移去使用sqlite数据
+（默认使用sqlite数据库，如需使用其他数据库，可以在settings.py中配置(例如：mysql数据库，配置项有：engine name user password host port)）
+9.之后，就是修改urls.py views.py 增加html文件，书写views中的逻辑代码，并在根目录中，打开cmd,输入 python manage.py runserver [port] 运行项目了（[port可填，可不填，不填默认端口号 8000]）
+
+使用bootstrap中的 字体图标库
+1.下载图标库中的源码，将源码中的svg图标拷贝一份，在html中，使用img进行引入即可（在django中有用）
+或者
+2.将其源码中的font拷贝一份，在html中，使用 <i class="bi bi-svg图标名称"></i>（在django中没用）
+
+组件的灵活使用，以及模板的灵活使用，将大大提高开发效率，减少代码冗余
+注意：html模板名称：可以写成 (  templates目录下文件夹名称或不写 )/模板名称.html 例如：项目名称_layout/模板名称.html 或 模板名称.html
+1.导入( include )
+{% include "html模板名称" %}
+2.继承(extends)与占位(block)
+在母模板中：{% block 占位名称 %}{% endblock %}
+在子模版中：{% extends 'html模板名称' %}  {% block 占位名称 %}占位内容{% endblock %}
+（其实可以一致套下去，但不建议这样做，套两三个就可以了，以免出现辨别困难，增加开发难度）
+
+***
+
+## django 中各个模块介绍
+### request 请求模块 请求示例
+
+获取django中获取url有如下三种方法：
+
+获取带参数URL：request.get_all_path()
+
+获取不带参数URL：request.path
+
+获取主机地址：request.get_host()
+
+### template 模板模块
+
+模板语法如下：
+```
+{{变量名}}
+{% %}
+```
+
+### models 数据模块
+
+#### django中的models.py介绍
+
+1.使用 
+python manage.py makemigrations
+python manage.py migrate
+将写好的models.py中的表结构，在配置好的数据库中生成对应的表结构
+
+2.生成models.py文件，利用已经存在的数据库生成
+配置好数据库的配置项，然后，输入：
+#(1). 如果已经执行过 python manage.py startapp app名称 命令生成应用,直接写
+python manage.py  inspectdb > app名称/models.py 
+#(2). 如果没有执行过 python manage.py startapp app名称 命令生成应用，可以直接将生成的models内容输出为 models.py文件
+python manage.py  inspectdb > models.py 
+
+3.models.py中，书写规范：
+from django.db import models
+
+class UserInfo(models.Model):
+	name=models.CharField(verbose_name='用户名',max_length=32)
+	password=models.CharField(verbose_name='密码',max_length=64)
+	age=models.IntegerField(verbose_name='年龄')
+
+4.讲解
+(1).verbose_name 可以看作是备注
+(2).创建字段的类型的方法有：
+字符字段（可以用：max_length来明确字符长度，其实，这可以当作 string字符串类型）
+.CharField()
+短整形字段
+.SmallIntegerField()
+整形字段
+.IntegerField()
+长整形字段
+.BigIntegerField()
+小数字段
+.DecimalField()    max_digits 最大长度   decimal_places 小数点占位个数
+时间字段
+.DateTimeField()   #含有 年月日 时分秒
+日期字段
+.DateField()       #只含有  年月日
+(3).对该字段创建外键约束：
+UserInfo  与  DepartmentInfo    UserInfo表中 含有DepartmentInfo中的Id，此时 UserInfo表中的部门ID要参照DepartmentInfo中的ID
+此时，在UserInfo表中 对depart_id字段建立外键约束
+所以：
+depart=models.ForeignKey(to='DepartmentInfo',to_field='id',on_delete=models.CASCADE)   设置参照DepartmentInfo表中的id字段对该字段进行外键约束
+其中：
+on_delete=models.CASCADE  是对其外键设置级联（即：当DepartmentInfo中对应的id值所在一整行数据要被删除时，UserInfo表中有着对应关系的depart字段的值的这一行数据，将会一同被删除）
+on_delete=models.SET_NULL,null=True,blank=True  是对其外键设置为  置空（即：当DepartmentInfo中对应的id值所在一整行数据要被删除时，UserInfo表中有着对应关系的depart字段的值的这一行数据，将会一同设置为空(null)）
+在使用 ForeignKey()方法绑定的字段，该字段， 
+会有两种调用方法：
+注意：该字段不要加_id  因为在创建该表字段的时候，会自己加上一个 id
+使用该字段的时候:
+第一种，调用方法：字段_id  可以获取到存储到数据库中的对应的id值
+第二种，调用方法：字段  可以获取到一个 对象，该对象就是 约束该字段的那张表的对象，对此 你可以获取到对应的id相等的那行数据
+
+(4).对字段创建 值约束（可以理解为 选择约束（由 django自带的约束））
+比如：
+gender_choices=(
+	(1,'男'),
+	(2,'女')
+)
+
+gender=models.SmallIntegerField(verbose_name='性别',choices=gender_choices)
+代码中 choices=gender_choices 便是值约束
+注意：在使用models.py模块访问到数据之后，
+第一种，可以通过 get_gender_display() 方法 获取该字段gender的值 1对应的"男"  
+第二种，通过字段gender可以获取 1
+
+
+### admin 模块
+#### admin.py文件介绍
+```
+from django.contrib import admin
+
+# Register your models here.
+# 1.从django的contrib版本中调用admin包,该包 包含admin等自动化站点管理工具
+# 需要在admin后台中显示哪些数据, 则相应从models中导入对应模型类用以调用数据
+# from app名称.models import model中表的类名
+
+# 2.
+# class 表类名Admin(admin.ModelAdmin):
+    # '''表对应的类模型admin管理类'''
+    # 3.
+    # 指定每页显示多少条信息
+    # list_per_page = 10  
+    # 4.
+    # list_display中不仅可以写模型类的属性(即 表的列名), 也可以写模型类的方法
+    # list_display = ['','',...]
+    # 5.
+    # 指定下拉列表框的位置以及存在与否
+    # actions_on_top = False  # 上面的下拉列表开关设置
+    # actions_on_bottom = True  # 下面的下拉列表开关设置
+    # 6.
+    # list_filter = ['属性名']  # 列表过滤栏设置指定过滤的['属性']
+    # search_fields = True      # 搜索框的开关设置
+    # search_fields = ['属性名']  # 搜索栏设置指定搜索属性['属性']
+    # 7.
+    # fields = ['属性名','属性名',...]  # fields 修改每个objects在admin中属性的排列顺序
+
+    # fieldsets 设置组, 在组内放入属性分类
+    # fieldsets = (  
+    #     ('基本或其他名称',{'fields':['属性名']}),
+    #     ('高级或其他名称',{'fields':['属性名']})
+    # )
+
+    # 注意： fields 和 fieldsets 两个通常情况下只选择一个使用
+
+    # 8.
+    # 嵌套或者叫关联子对象和父对象
+    # (1). 创建嵌套对象, 声明嵌套类型(块嵌套或表格嵌套)以及额外编辑数量:(以块嵌套为例)
+    # class 自定义关联类名StackedInline(admin.StackedInline):
+    #       model = 类名  # 关联的子对象
+    #       extra = 2  # 额外编辑2个子对象
+
+    # (2).使用方法 
+    # 在需要进行关联的'表类名Admin'类后加上 inline = [上方定义的关联类] :
+    # inline = [自定义关联类名StackedInline]
+
+
+# 自定义admin自动化管理工具, 要改写admin中的ModelAdmin(模型_管理)的参数
+# 9.修改列表显示, 则更改list_display中的列表内容
+# class 类名Admin(admin.ModelAdmin):
+#     list_display = ['列名', '列名',...]
+
+# 用admin包内的site站点模块, 使用register注册方法, 注册从模型中导入的模型类(单个)
+# admin.site.register(类名,类名Admin)
+```
+
+
+### tests 模块
+
+#### tests.py文件介绍
+
+测试的格式，大致是：
+```
+# # Create your tests here.
+# 1.导入相关模块
+# from django.test import TestCase, Client
+# from .models import Student
+# 2.创建一个 类名TestCase的类，继承TestCase 并在类中书写setup 和 以test开头的方法的需要测试的方法 在最好虽然可以写tearDown方法，但不需要这样，因为django会帮咱们做
+# class StudentTestCase(TestCase):
+#     """
+#     3.在student类中，首先书写 setup进行初始化 进行测试的准备工作
+#     def setUp(self)：用来初始化环境，包括创建初始数据，或做一些其他准备工作
+#     setUp的功能，可以对 模型student表进行添加数据，添加的数据会放到一个临时的数据库中，前提是 settings中的数据库已配置好
+#     4.书写 需要进行测试的方法 可以通过 self.assertEqual(变量, 值, 提示内容) 或 self.assertTrue(bool值,需要print打印出来的信息)  进行断言
+#     如果需要测试请求是否有问题，则可以通过client = Client() response = client.get('/') 或 response = client.post('/',data)
+#     def test_xxx(self)：xxx可以是任何东西，以test_开头的方法，都会被django认为是需要测试的方法，跑测试时会被执行
+#     注：每个需要被测试的方法都是相互独立的
+#     def tearDown(self)：跟setUp相对，用来清理测试环境和测试数据（在django中可以不关心这个）
+#     """
+#     5.例如：
+#     def setUp(self):
+#         print('setUp')
+
+#     # 需要进行测试的方法
+#     def test_xxx(self):
+#         print('test_xxx')
+#         self.assertEqual(变量, 值, 需要print打印出来的信息)
+```
+
+```
+案例：
+from django.test import TestCase, Client
+from .models import Student
+
+
+class StudentTestCase(TestCase):
+    """
+    def setUp(self)：用来初始化环境，包括创建初始数据，或做一些其他准备工作
+    def test_xxx(self)：xxx可以是任何东西，以test_开头的方法，都会被django认为是需要测试的方法，跑测试时会被执行。
+        注：每个需要被测试的方法都是相互独立的
+    def tearDown(self)：跟setUp相对，用来清理测试环境和测试数据（在django中可以不关心这个）
+    """
+    def setUp(self):
+        print('setUp')
+        Student.objects.create(
+            name='stu1',
+            sex=1,
+            email='test1@qq.com',
+            qq='333',
+            phone='111',
+        )
+
+    # 测试数据创建以及sex字段的正确展示
+    def test_create_and_sex_show(self):
+        print('test_create_and_sex_show')
+        student = Student.objects.create(
+            name='huyang',
+            sex=1,
+            email='test2@qq.com',
+            profession='t1',
+            qq='123',
+            phone='test2123',
+        )
+        # django提供了get_xxx_display方法，可以替换sex_show
+        self.assertEqual(student.sex_show, '男', '性别字段内容跟展示不一样')
+        # self.assertEqual(student.get_sex_display, '男', '性别字段内容跟展示不一样')
+
+    # 测试查询是否可用
+    def test_filter(self):
+        print('test_filter')
+        Student.objects.create(
+            name='huyang',
+            sex=1,
+            email='testfilter@qq.com',
+            profession='t2',
+            qq='222',
+            phone='22322',
+        )
+        name = 'stu1'
+        students = Student.objects.filter(name=name)
+        self.assertEqual(students.count(), 1, '应该只存在一个名称为{}的记录'.format(name))
+
+    # 测试首页的可用性
+    def test_get_index(self):
+        print('test_get_index')
+        client = Client()
+        response = client.get('/')
+        self.assertEqual(response.status_code, 200, 'status code must be 200!')
+
+    # 测试post请求
+    def test_post_student(self):
+        print('test_post_student')
+        client = Client()
+        data = dict(
+            name='test_for_post',
+            sex=1,
+            email='333@dd.com',
+            profession='t2',
+            qq='2323',
+            phone='3222'
+        )
+        response = client.post('/', data)
+        self.assertEqual(response.status_code, 302, 'status code must be 302!')
+
+        response = client.get('/')
+        with open('temp.html', 'wb') as f:
+            f.write(response.content)
+        self.assertTrue(b'test_for_post' in response.content,
+                        'response content must contain `test_for_post`')
+
+```
