@@ -21,9 +21,7 @@ math: true
 ---
 
 ### 摘要
-<MTMarkdownOptions output='raw'>
-  <!--more-->
-</MTMarkdownOptions>
+    <!--more-->
 
 <!--more-->
 
