@@ -207,7 +207,7 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
 
 ### 超链接图片
 
-[![小刘](https://mimao-hugo-blog.netlify.app/img/avatar_hudf0dd1d9cae34683258bdfb374497f7c_46309_300x0_resize_box_3.png)](https://mimao-hugo-blog.netlify.app/img/avatar_hudf0dd1d9cae34683258bdfb374497f7c_46309_300x0_resize_box_3.png)
+[![小刘]()](https://mimao-hugo-blog.netlify.app/img/avatar_hudf0dd1d9cae34683258bdfb374497f7c_46309_300x0_resize_box_3.png)
 
 ***
 
@@ -252,7 +252,7 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
     <p><span class="nowrap"><span class="emojify">🙈</span> <code>:see_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙉</span> <code>:hear_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙊</span> <code>:speak_no_evil:</code></span></p>
     <br>
 
-    {{ "\{\{< css.inline >\}\}"}}
+    {{ "{{< css.inline >}}" }}
     <style>
     .emojify {
       font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
@@ -266,7 +266,7 @@ Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and ot
       }
     }
     </style>
-    {{ "\{\{< /css.inline >\}\}"}}
+    {{ "{{< /css.inline >}}" }}
 {{< /highlight >}}
 
 ***
