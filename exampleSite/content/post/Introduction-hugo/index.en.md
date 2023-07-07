@@ -20,4 +20,6 @@ categories:
 # math: true
 ---
 
-由于时间原因，英文版的博客不进行书写 还请谅解
+Due to time constraints, the English version of the blog will not be written. 
+
+Please understand

@@ -2,7 +2,7 @@
 title: "Linux"
 description: "Linux相关知识"
 slug: "liunx"
-image: "hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg"
+image: "1024x1024.png"
 style:
     background: "#2a9d8f"
     color: "#fff"
