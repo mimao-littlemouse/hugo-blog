@@ -19,12 +19,12 @@ categories:
 
 ## django简介
 
-django
-	简介
-		相比flask轻量级web框架，django内置了许多的模块 所以体型较大，称之为重量级web框架
-		目录结构
-			python安装后的安装目录结构介绍
-				Python39:
+相比flask轻量级web框架，django内置了许多的模块 所以体型较大，称之为重量级web框架
+
+### 目录结构
+#### python安装后的安装目录结构介绍
+```
+Python39:
 	--python.exe
 	Scripts:
 		--pip.exe
@@ -46,14 +46,20 @@ django
 			--第三方模块
 			--django         (框架的源码存放处)
 
-	
-		安装方法：
-			使用 pip install django  安装即可
-		项目创建的方法
-			在存放django项目的文件夹中，打开cmd(cmd指终端)，
-			输入  django-admin startproject 项目名称     即可创建成功
-		项目结构介绍
-			存放项目的文件夹：
+```
+
+#### 安装方法：
+
+使用 pip install django  安装即可
+
+##### 项目创建的方法
+	在存放django项目的文件夹中，打开cmd(cmd指终端)，
+	输入  django-admin startproject 项目名称     即可创建成功
+
+##### 项目结构介绍
+
+```
+存放项目的文件夹：
 	项目名称命名的文件夹：
 		--manage.py   ( 项目的管理 )
 
@@ -91,21 +97,37 @@ django
 	-- models.py					（对数据库进行操作的 django中有模块进行了内部封装 称为orm ）
 	-- tests.py					（单元测试用的）
 	--views.py					（视图  ）
-		运行 django项目
-			1.首先 确保 app已经注册
-				在  settings.py中的 installed_apps中写上 ， 'app名称.apps.app名称Config'    这样完成即可
-			2.其次，编写好  url 与 视图函数之间的关系
-				在 urls.py 中编写,按照 原有的样式 编写自己的 url   即可
-					即：先导入 from django_demo import views   然后  urlpatterns的列表中书写  path('index/',views.index)
-			3.然后，在 views.py 中编写 视图函数
-				虽然在urls.py中编写好了 对应的url与视图函数的关系，但该视图函数还未在 views.py中进行实现，所以，需要根据原有的 例子，进行编写即可
-					即：然后
-						from django.shortcuts import render,HttpResponse     #HttpResponse是要加上去的
+		
+```
+
+
+##### 运行 django项目
+
+```
+1.首先 确保 app已经注册
+在  settings.py中的 installed_apps中写上 ， 
+'app名称.apps.app名称Config'    这样完成即可
+			
+2.其次，编写好  url 与 视图函数之间的关系
+在 urls.py 中编写,按照 原有的样式 编写自己的 url   即可
+
+即：先导入 from django_demo import views   
+然后  urlpatterns的列表中书写  path('index/',views.index)
+
+3.然后，在 views.py 中编写 视图函数
+虽然在urls.py中编写好了 对应的url与视图函数的关系，
+但该视图函数还未在 views.py中进行实现，
+所以，需要根据原有的 例子，进行编写即可
+
+即：然后
+
+from django.shortcuts import render,HttpResponse   #HttpResponse是要加上去的
 
 # Create your views here.
 #然后，在下面书写视图函数，该视图函数 必须带一个request的参数
 def index(request):
     return HttpResponse('hello world!')
+
 			4.然后，在 项目目录文件夹路径中，打开cmd,输入  python manage.py runserver  即可
 	django项目
 		templates目录介绍

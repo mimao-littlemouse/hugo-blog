@@ -19,7 +19,7 @@ categories:
 # Python 基础
 
 ## python 内置模块os
-
+```python
 import os
 
 
@@ -43,37 +43,12 @@ os.path.join('','',....)
 
 os.abspath(path)
 
-***
-
-## python 内置模块os
-
-import os
-
-
-os.listdir(path)
-参数为文件夹路径，可以返回文件夹下的所有子文件夹(该子文件夹下的文件不给予返回，仅返回名称)、文件名称
-
-os.walk(path)
-参数为文件夹路径，返回3个内容：绝对路径(root)、子文件夹(dirs)、文件名(files)
-此方法可以遍历文件夹下的所有文件、子文件及内的所有文件
-
-glob.glob
-glob：参数为路径以及文件过滤条件，若不设置过滤需填写为*，此函数会返回包括路径的文件夹和文件名
-例如：
-import glob
-[print(file_abs) for file_abs in glob.glob(path)]
-
-os.getcwd()
-获取当前项目的路径
-
-os.path.join('','',....)
-
-os.abspath(path)
+```
 
 ***
 
 ## python中列表推导式
-
+```python
 new_list = [expression(item) for item in iterable if condition]
 可以写成：
 new_list = []
@@ -85,8 +60,11 @@ for item in iterable:
 numbers = [2*x for x in range(1,11) if x>2 and x<5]
 print(numbers)
 >>> [6, 8]
+```
 
 **如果 x 的值介于2和5之间，则列表推导式返回 2*x，否则返回 3*x。**
+
+```python
 numbers = [2*x if x > 2 and x < 5 else 3*x for x in range(10)]
 print(numbers)
 >>> [0, 3, 6, 6, 8, 15, 18, 21, 24, 27]
@@ -135,4 +113,4 @@ print(reduce(lambda a,b: a+b, numbers))
 变换成列表推导式
 print(sum([number for number in numbers]))
 >>> 40
-
+```
