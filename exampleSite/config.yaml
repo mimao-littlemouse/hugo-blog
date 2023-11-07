@@ -2,18 +2,18 @@ baseurl: https://mimao-hugo-blog.netlify.app
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
-title: Mimao Blog
+title: Mimao Note
 
 languages:
     zh-cn:
         languageName: 中文
-        title: 米猫博客
-        description: 便捷 舒适
+        title: 米猫笔记
+        description: 便捷
         weight: 1
     en:
         languageName: English
-        title: Mimao Blog
-        description: Convenient and comfortable
+        title: Mimao Note
+        description: Convenient
         weight: 2
     # ar:
     #     languageName: عربي
